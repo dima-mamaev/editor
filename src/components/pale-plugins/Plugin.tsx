@@ -7,7 +7,6 @@ import { createHorizontalRulePlugin, ELEMENT_HR } from '@udecode/plate-horizonta
 import { createLinkPlugin, ELEMENT_LINK } from '@udecode/plate-link';
 import { createImagePlugin, ELEMENT_IMAGE, createMediaEmbedPlugin, ELEMENT_MEDIA_EMBED } from '@udecode/plate-media';
 import { createCaptionPlugin } from '@udecode/plate-caption';
-import { createTodoListPlugin, ELEMENT_TODO_LI } from '@udecode/plate-list';
 import { createTablePlugin, ELEMENT_TABLE, ELEMENT_TR, ELEMENT_TD, ELEMENT_TH } from '@udecode/plate-table';
 import { createBoldPlugin, MARK_BOLD, createItalicPlugin, MARK_ITALIC, createUnderlinePlugin, MARK_UNDERLINE, createStrikethroughPlugin, MARK_STRIKETHROUGH, createCodePlugin, createSubscriptPlugin, MARK_SUBSCRIPT, createSuperscriptPlugin, MARK_SUPERSCRIPT } from '@udecode/plate-basic-marks';
 import { createFontColorPlugin, createFontBackgroundColorPlugin, createFontSizePlugin } from '@udecode/plate-font';
@@ -37,7 +36,6 @@ import { ParagraphElement } from '@/components/plate-ui/paragraph-element';
 import { TableElement } from '@/components/plate-ui/table-element';
 import { TableRowElement } from '@/components/plate-ui/table-row-element';
 import { TableCellElement, TableCellHeaderElement } from '@/components/plate-ui/table-cell-element';
-import { TodoListElement } from '@/components/plate-ui/todo-list-element';
 import { HighlightLeaf } from '@/components/plate-ui/highlight-leaf';
 
 import { withPlaceholders } from '@/components/plate-ui/placeholder';
@@ -61,7 +59,6 @@ const plugins = createPlugins(
                 ]
             },
         }),
-        createTodoListPlugin(),
         createTablePlugin(),
         createBoldPlugin(),
         createItalicPlugin(),
@@ -186,7 +183,6 @@ const plugins = createPlugins(
             [ELEMENT_TR]: TableRowElement,
             [ELEMENT_TD]: TableCellElement,
             [ELEMENT_TH]: TableCellHeaderElement,
-            [ELEMENT_TODO_LI]: TodoListElement,
             [MARK_BOLD]: withProps(PlateLeaf, { as: 'strong' }),
             [MARK_HIGHLIGHT]: HighlightLeaf,
             [MARK_ITALIC]: withProps(PlateLeaf, { as: 'em' }),
