@@ -1,4 +1,5 @@
-import { PlateEditor } from "./editor"
+
+import PlateEditor from './components/palte-editor/PlateEditor'
 import './styles/globals.css'
 
 function App() {
@@ -32,7 +33,7 @@ function App() {
       {
         sections.map(section => {
           return (
-            <PlateEditor key={section.id} />
+            <PlateEditor key={section.id} initialValue={section.blocks} />
           )
         })
 
