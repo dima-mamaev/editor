@@ -12,12 +12,9 @@ import { createTablePlugin, ELEMENT_TABLE, ELEMENT_TR, ELEMENT_TD, ELEMENT_TH } 
 import { createBoldPlugin, MARK_BOLD, createItalicPlugin, MARK_ITALIC, createUnderlinePlugin, MARK_UNDERLINE, createStrikethroughPlugin, MARK_STRIKETHROUGH, createCodePlugin, MARK_CODE, createSubscriptPlugin, MARK_SUBSCRIPT, createSuperscriptPlugin, MARK_SUPERSCRIPT } from '@udecode/plate-basic-marks';
 import { createFontColorPlugin, createFontBackgroundColorPlugin, createFontSizePlugin } from '@udecode/plate-font';
 import { createHighlightPlugin, MARK_HIGHLIGHT } from '@udecode/plate-highlight';
-import { createKbdPlugin, MARK_KBD } from '@udecode/plate-kbd';
 import { createAlignPlugin } from '@udecode/plate-alignment';
 import { createIndentPlugin } from '@udecode/plate-indent';
 import { createIndentListPlugin } from '@udecode/plate-indent-list';
-import { createLineHeightPlugin } from '@udecode/plate-line-height';
-import { createAutoformatPlugin } from '@udecode/plate-autoformat';
 import { createBlockSelectionPlugin } from '@udecode/plate-selection';
 import { createComboboxPlugin } from '@udecode/plate-combobox';
 import { createDndPlugin } from '@udecode/plate-dnd';
@@ -43,7 +40,6 @@ import { TableCellElement, TableCellHeaderElement } from '@/components/plate-ui/
 import { TodoListElement } from '@/components/plate-ui/todo-list-element';
 import { CodeLeaf } from '@/components/plate-ui/code-leaf';
 import { HighlightLeaf } from '@/components/plate-ui/highlight-leaf';
-import { KbdLeaf } from '@/components/plate-ui/kbd-leaf';
 
 import { withPlaceholders } from '@/components/plate-ui/placeholder';
 import { withDraggables } from '@/components/plate-ui/with-draggables';
@@ -108,26 +104,6 @@ const plugins = createPlugins(
                         // ELEMENT_H1, ELEMENT_H2, ELEMENT_H3, ELEMENT_BLOCKQUOTE, ELEMENT_CODE_BLOCK
                     ],
                 },
-            },
-        }),
-        createLineHeightPlugin({
-            inject: {
-                props: {
-                    defaultNodeValue: 1.5,
-                    validNodeValues: [1, 1.2, 1.5, 2, 3],
-                    validTypes: [
-                        ELEMENT_PARAGRAPH,
-                        // ELEMENT_H1, ELEMENT_H2, ELEMENT_H3
-                    ],
-                },
-            },
-        }),
-        createAutoformatPlugin({
-            options: {
-                rules: [
-                    // Usage: https://platejs.org/docs/autoformat
-                ],
-                enableUndoOnDelete: true,
             },
         }),
         createBlockSelectionPlugin({
@@ -217,7 +193,6 @@ const plugins = createPlugins(
             [MARK_CODE]: CodeLeaf,
             [MARK_HIGHLIGHT]: HighlightLeaf,
             [MARK_ITALIC]: withProps(PlateLeaf, { as: 'em' }),
-            [MARK_KBD]: KbdLeaf,
             [MARK_STRIKETHROUGH]: withProps(PlateLeaf, { as: 's' }),
             [MARK_SUBSCRIPT]: withProps(PlateLeaf, { as: 'sub' }),
             [MARK_SUPERSCRIPT]: withProps(PlateLeaf, { as: 'sup' }),
