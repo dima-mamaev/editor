@@ -9,7 +9,7 @@ import { createImagePlugin, ELEMENT_IMAGE, createMediaEmbedPlugin, ELEMENT_MEDIA
 import { createCaptionPlugin } from '@udecode/plate-caption';
 import { createTodoListPlugin, ELEMENT_TODO_LI } from '@udecode/plate-list';
 import { createTablePlugin, ELEMENT_TABLE, ELEMENT_TR, ELEMENT_TD, ELEMENT_TH } from '@udecode/plate-table';
-import { createBoldPlugin, MARK_BOLD, createItalicPlugin, MARK_ITALIC, createUnderlinePlugin, MARK_UNDERLINE, createStrikethroughPlugin, MARK_STRIKETHROUGH, createCodePlugin, MARK_CODE, createSubscriptPlugin, MARK_SUBSCRIPT, createSuperscriptPlugin, MARK_SUPERSCRIPT } from '@udecode/plate-basic-marks';
+import { createBoldPlugin, MARK_BOLD, createItalicPlugin, MARK_ITALIC, createUnderlinePlugin, MARK_UNDERLINE, createStrikethroughPlugin, MARK_STRIKETHROUGH, createCodePlugin, createSubscriptPlugin, MARK_SUBSCRIPT, createSuperscriptPlugin, MARK_SUPERSCRIPT } from '@udecode/plate-basic-marks';
 import { createFontColorPlugin, createFontBackgroundColorPlugin, createFontSizePlugin } from '@udecode/plate-font';
 import { createHighlightPlugin, MARK_HIGHLIGHT } from '@udecode/plate-highlight';
 import { createAlignPlugin } from '@udecode/plate-alignment';
@@ -38,7 +38,6 @@ import { TableElement } from '@/components/plate-ui/table-element';
 import { TableRowElement } from '@/components/plate-ui/table-row-element';
 import { TableCellElement, TableCellHeaderElement } from '@/components/plate-ui/table-cell-element';
 import { TodoListElement } from '@/components/plate-ui/todo-list-element';
-import { CodeLeaf } from '@/components/plate-ui/code-leaf';
 import { HighlightLeaf } from '@/components/plate-ui/highlight-leaf';
 
 import { withPlaceholders } from '@/components/plate-ui/placeholder';
@@ -75,7 +74,6 @@ const plugins = createPlugins(
         createFontBackgroundColorPlugin(),
         createFontSizePlugin(),
         createHighlightPlugin(),
-        createKbdPlugin(),
         createAlignPlugin({
             inject: {
                 props: {
@@ -190,7 +188,6 @@ const plugins = createPlugins(
             [ELEMENT_TH]: TableCellHeaderElement,
             [ELEMENT_TODO_LI]: TodoListElement,
             [MARK_BOLD]: withProps(PlateLeaf, { as: 'strong' }),
-            [MARK_CODE]: CodeLeaf,
             [MARK_HIGHLIGHT]: HighlightLeaf,
             [MARK_ITALIC]: withProps(PlateLeaf, { as: 'em' }),
             [MARK_STRIKETHROUGH]: withProps(PlateLeaf, { as: 's' }),
