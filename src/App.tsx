@@ -1,3 +1,5 @@
+import { PlateEditor } from "./editor"
+import './styles/globals.css'
 
 function App() {
   const sections = [
@@ -30,7 +32,7 @@ function App() {
       {
         sections.map(section => {
           return (
-            <div>{section.id}</div>
+            <PlateEditor key={section.id} />
           )
         })
 
