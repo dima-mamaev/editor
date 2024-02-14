@@ -11,7 +11,7 @@ import { ResizableProvider, useResizableStore } from '@udecode/plate-resizable';
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 import { Tweet } from 'react-tweet';
 
-import { Caption, CaptionTextarea } from './caption';
+import { Caption, CaptionTextarea } from './Utils/caption';
 import { MediaPopover } from './media-popover';
 import {
   mediaResizeHandleVariants,
@@ -109,8 +109,8 @@ export const MediaEmbedElement = withHOC(
                   className={cn(
                     '[&_.react-tweet-theme]:my-0',
                     !readOnly &&
-                      selected &&
-                      '[&_.react-tweet-theme]:ring-2 [&_.react-tweet-theme]:ring-slate-950 [&_.react-tweet-theme]:ring-offset-2 dark:[&_.react-tweet-theme]:ring-slate-300'
+                    selected &&
+                    '[&_.react-tweet-theme]:ring-2 [&_.react-tweet-theme]:ring-slate-950 [&_.react-tweet-theme]:ring-offset-2 dark:[&_.react-tweet-theme]:ring-slate-300'
                   )}
                 >
                   <Tweet id={embed!.id!} />

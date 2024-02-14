@@ -8,7 +8,7 @@ import { FixedToolbar } from '@/components/plate-ui/fixed-toolbar';
 import { FixedToolbarButtons } from '@/components/plate-ui/fixed-toolbar-buttons';
 import { FloatingToolbar } from '@/components/plate-ui/floating-toolbar';
 import { FloatingToolbarButtons } from '@/components/plate-ui/floating-toolbar-buttons';
-import { TooltipProvider } from '@/components/plate-ui/tooltip';
+import { TooltipProvider } from '../plate-ui/ToolTip/tooltip';
 import plugins from '../pale-plugins/Plugin';
 
 

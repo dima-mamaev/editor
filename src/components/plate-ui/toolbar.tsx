@@ -8,7 +8,7 @@ import { cva, VariantProps } from 'class-variance-authority';
 import { Icons } from '@/components/icons';
 
 import { Separator } from './separator';
-import { withTooltip } from './tooltip';
+import { withTooltip } from './ToolTip/tooltip';
 
 export const Toolbar = withCn(
   ToolbarPrimitive.Root,
@@ -64,10 +64,10 @@ const ToolbarButton = withTooltip(
       React.ComponentPropsWithoutRef<typeof ToolbarToggleItem>,
       'asChild' | 'value'
     > &
-      VariantProps<typeof toolbarButtonVariants> & {
-        pressed?: boolean;
-        isDropdown?: boolean;
-      }
+    VariantProps<typeof toolbarButtonVariants> & {
+      pressed?: boolean;
+      isDropdown?: boolean;
+    }
   >(
     (
       { className, variant, size, isDropdown, children, pressed, ...props },

@@ -9,9 +9,6 @@ import {
   ELEMENT_H1,
   ELEMENT_H2,
   ELEMENT_H3,
-  ELEMENT_H4,
-  ELEMENT_H5,
-  ELEMENT_H6,
 } from '@udecode/plate-heading';
 import { ELEMENT_OL, ELEMENT_UL } from '@udecode/plate-list';
 import { ELEMENT_PARAGRAPH } from '@udecode/plate-paragraph';
@@ -62,15 +59,6 @@ export const withDraggables = (components: any) => {
       },
     },
     {
-      keys: [ELEMENT_H4, ELEMENT_H5],
-      draggableProps: {
-        classNames: {
-          gutterLeft: 'pt-[3px] px-0 pb-0 text-[1.1em]',
-          blockToolbarWrapper: 'h-[1.3em]',
-        },
-      },
-    },
-    {
       keys: [ELEMENT_PARAGRAPH],
       draggableProps: {
         classNames: {
@@ -79,7 +67,7 @@ export const withDraggables = (components: any) => {
       },
     },
     {
-      keys: [ELEMENT_H6, ELEMENT_UL, ELEMENT_OL],
+      keys: [ELEMENT_UL, ELEMENT_OL],
       draggableProps: {
         classNames: {
           gutterLeft: 'px-0 pb-0',

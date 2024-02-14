@@ -25,7 +25,7 @@ import { useReadOnly, useSelected } from 'slate-react';
 
 import { Icons, iconVariants } from '@/components/icons';
 
-import { Button } from './button';
+import { Button } from './Button/button';
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,

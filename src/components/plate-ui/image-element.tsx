@@ -4,7 +4,7 @@ import { PlateElement, withHOC } from '@udecode/plate-common';
 import { ELEMENT_IMAGE, Image, useMediaState } from '@udecode/plate-media';
 import { ResizableProvider, useResizableStore } from '@udecode/plate-resizable';
 
-import { Caption, CaptionTextarea } from './caption';
+import { Caption, CaptionTextarea } from './Utils/caption';
 import { MediaPopover } from './media-popover';
 import {
   mediaResizeHandleVariants,

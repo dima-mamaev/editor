@@ -19,7 +19,7 @@ import {
 
 import { Icons } from '@/components/icons';
 
-import { buttonVariants } from './button';
+import { buttonVariants } from './Button/button';
 import { inputVariants } from './input';
 import { popoverVariants } from './popover';
 import { Separator } from './separator';

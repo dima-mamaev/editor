@@ -14,7 +14,7 @@ import { useReadOnly, useSelected } from 'slate-react';
 
 import { Icons } from '@/components/icons';
 
-import { Button, buttonVariants } from './button';
+import { Button, buttonVariants } from './Button/button';
 import { inputVariants } from './input';
 import { Popover, PopoverAnchor, PopoverContent } from './popover';
 import { Separator } from './separator';
