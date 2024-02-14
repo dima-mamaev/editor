@@ -1,7 +1,5 @@
-import React from 'react';
 import {
   MARK_BOLD,
-  MARK_CODE,
   MARK_ITALIC,
   MARK_STRIKETHROUGH,
   MARK_UNDERLINE,
@@ -10,9 +8,8 @@ import { useEditorReadOnly } from '@udecode/plate-common';
 
 import { Icons } from '@/components/icons';
 
-import { MarkToolbarButton } from './mark-toolbar-button';
-import { MoreDropdownMenu } from './more-dropdown-menu';
-import { TurnIntoDropdownMenu } from './turn-into-dropdown-menu';
+import { MarkToolbarButton } from '../mark-toolbar-button';
+import { TurnIntoDropdownMenu } from '../turn-into-dropdown-menu';
 
 export function FloatingToolbarButtons() {
   const readOnly = useEditorReadOnly();
@@ -22,7 +19,6 @@ export function FloatingToolbarButtons() {
       {!readOnly && (
         <>
           <TurnIntoDropdownMenu />
-
           <MarkToolbarButton nodeType={MARK_BOLD} tooltip='Bold (⌘+B)'>
             <Icons.bold />
           </MarkToolbarButton>
@@ -41,13 +37,8 @@ export function FloatingToolbarButtons() {
           >
             <Icons.strikethrough />
           </MarkToolbarButton>
-          <MarkToolbarButton nodeType={MARK_CODE} tooltip='Code (⌘+E)'>
-            <Icons.code />
-          </MarkToolbarButton>
         </>
       )}
-
-      <MoreDropdownMenu />
     </>
   );
 }

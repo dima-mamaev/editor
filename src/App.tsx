@@ -15,29 +15,20 @@ function App() {
         },
       ]
     },
-    {
-      id: 'section-2',
-      title: 'Section 2',
-      blocks: [
-        {
-          id: '1123123-12312_czc',
-          type: 'p',
-          children: [{ text: 'Hello, World!' }],
-        },
-      ]
-    }
   ]
   return (
     <section>
       <div>PlateJS Editor</div>
-      {
-        sections.map(section => {
-          return (
-            <PlateEditor key={section.id} initialValue={section.blocks} />
-          )
-        })
+      <section style={{ margin: "50px" }}>
+        {
+          sections.map(section => {
+            return (
+              <PlateEditor key={section.id} initialValue={section.blocks} />
+            )
+          })
 
-      }
+        }
+      </section>
     </section>
   )
 }

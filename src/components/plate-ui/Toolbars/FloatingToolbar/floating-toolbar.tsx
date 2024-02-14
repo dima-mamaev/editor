@@ -1,6 +1,3 @@
-'use client';
-
-import React from 'react';
 import { cn, withRef } from '@udecode/cn';
 import { PortalBody, useComposedRef } from '@udecode/plate-common';
 import {
@@ -11,7 +8,7 @@ import {
   useFloatingToolbarState,
 } from '@udecode/plate-floating';
 
-import { Toolbar } from './toolbar';
+import { Toolbar } from '../../toolbar';
 
 export const FloatingToolbar = withRef<
   typeof Toolbar,

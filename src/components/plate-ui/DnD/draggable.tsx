@@ -11,6 +11,8 @@ import { DropTargetMonitor } from 'react-dnd';
 import { Icons } from '@/components/icons';
 
 import { Tooltip, TooltipContent, TooltipTrigger } from '../ToolTip/tooltip'
+import { Toolbar, ToolbarGroup } from '../toolbar';
+import { InsertDropdownMenu } from '../Toolbars/insert-dropdown-menu';
 
 export interface DraggableProps
   extends PlateElementProps,
@@ -117,12 +119,18 @@ export const Draggable = withRef<'div', DraggableProps>(
           {...gutterLeftProps}
         >
           <div className={cn('flex h-[1.5em]', classNames.blockToolbarWrapper)}>
+
+
             <div
               className={cn(
                 'pointer-events-auto mr-1 flex items-center',
                 classNames.blockToolbar
               )}
             >
+              <Toolbar>
+                <InsertDropdownMenu />
+
+              </Toolbar>
               <div ref={handleRef} className='h-4 w-4'>
                 {isHovered && dragHandle}
               </div>

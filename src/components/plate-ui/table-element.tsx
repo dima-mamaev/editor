@@ -32,7 +32,7 @@ import {
   DropdownMenuContent,
   DropdownMenuPortal,
   DropdownMenuTrigger,
-} from './dropdown-menu';
+} from './Toolbars/dropdown-menu';
 import { Popover, PopoverContent, popoverVariants } from './popover';
 import { Separator } from './separator';
 
