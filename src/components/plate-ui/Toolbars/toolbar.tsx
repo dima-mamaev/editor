@@ -5,10 +5,10 @@ import * as ToolbarPrimitive from '@radix-ui/react-toolbar';
 import { cn, withCn, withRef, withVariants } from '@udecode/cn';
 import { cva, VariantProps } from 'class-variance-authority';
 
-import { Icons } from '@/components/icons';
+import { Icons } from '@/components/plate-ui/Icons/icons';
 
-import { Separator } from './separator';
-import { withTooltip } from './ToolTip/tooltip';
+import { Separator } from '../Utils/separator';
+import { withTooltip } from '../ToolTip/tooltip';
 
 export const Toolbar = withCn(
   ToolbarPrimitive.Root,

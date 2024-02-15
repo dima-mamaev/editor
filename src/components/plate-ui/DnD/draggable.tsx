@@ -8,10 +8,10 @@ import {
 } from '@udecode/plate-dnd';
 import { DropTargetMonitor } from 'react-dnd';
 
-import { Icons } from '@/components/icons';
+import { Icons } from '@/components/plate-ui/Icons/icons';
 
 import { Tooltip, TooltipContent, TooltipTrigger } from '../ToolTip/tooltip'
-import { Toolbar, ToolbarGroup } from '../toolbar';
+import { Toolbar, ToolbarGroup } from '../Toolbars/toolbar';
 import { InsertDropdownMenu } from '../Toolbars/insert-dropdown-menu';
 
 export interface DraggableProps

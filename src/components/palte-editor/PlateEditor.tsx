@@ -3,7 +3,7 @@ import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 
 
-import { Editor } from '@/components/plate-ui/editor';
+import { Editor } from '@/components/plate-ui/Editor/editor';
 import { FloatingToolbar } from '@/components/plate-ui/Toolbars/FloatingToolbar/floating-toolbar';
 import { FloatingToolbarButtons } from '@/components/plate-ui/Toolbars/FloatingToolbar/floating-toolbar-buttons';
 import { TooltipProvider } from '../plate-ui/ToolTip/tooltip';
@@ -24,7 +24,7 @@ const PlateEditor = ({ initialValue }: Props) => {
             skipDelayDuration={0}
         >
             <DndProvider backend={HTML5Backend}>
-                <Plate plugins={plugins} initialValue={initialValue}>
+                <Plate plugins={plugins} initialValue={initialValue} onChange={v => console.log("State editor change", v)}>
                     <Editor />
                     <FloatingToolbar>
                         <FloatingToolbarButtons />

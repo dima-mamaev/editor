@@ -23,18 +23,18 @@ import {
 } from '@udecode/plate-table';
 import { useReadOnly, useSelected } from 'slate-react';
 
-import { Icons, iconVariants } from '@/components/icons';
+import { Icons, iconVariants } from '@/components/plate-ui/Icons/icons';
 
-import { Button } from './Button/button';
+import { Button } from '../Button/button';
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
   DropdownMenuPortal,
   DropdownMenuTrigger,
-} from './Toolbars/dropdown-menu';
-import { Popover, PopoverContent, popoverVariants } from './popover';
-import { Separator } from './separator';
+} from '../Toolbars/dropdown-menu';
+import { Popover, PopoverContent, popoverVariants } from '../Utils/popover';
+import { Separator } from '../Utils/separator';
 
 export const TableBordersDropdownMenuContent = withRef<
   typeof DropdownMenuPrimitive.Content

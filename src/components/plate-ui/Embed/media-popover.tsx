@@ -12,12 +12,11 @@ import {
 } from '@udecode/plate-media';
 import { useReadOnly, useSelected } from 'slate-react';
 
-import { Icons } from '@/components/icons';
+import { Icons } from '@/components/plate-ui/Icons/icons';
 
-import { Button, buttonVariants } from './Button/button';
-import { inputVariants } from './input';
-import { Popover, PopoverAnchor, PopoverContent } from './popover';
-import { Separator } from './separator';
+import { Button, buttonVariants } from '../Button/button';
+import { inputVariants } from '../Utils/input';
+import { Popover, PopoverAnchor, PopoverContent } from '../Utils/popover';
 
 export interface MediaPopoverProps {
   pluginKey?: string;
@@ -78,9 +77,6 @@ export function MediaPopover({ pluginKey, children }: MediaPopoverProps) {
             >
               Edit link
             </FloatingMediaPrimitive.EditButton>
-
-            <Separator orientation='vertical' className='my-1' />
-
             <Button variant='ghost' size='sms' {...buttonProps}>
               <Icons.delete className='h-4 w-4' />
             </Button>

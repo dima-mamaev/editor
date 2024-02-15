@@ -9,7 +9,7 @@ import {
 import { ELEMENT_H1, ELEMENT_H2 } from '@udecode/plate-heading';
 import { ELEMENT_PARAGRAPH } from '@udecode/plate-paragraph';
 
-import { Icons } from '@/components/icons';
+import { Icons } from '@/components/plate-ui/Icons/icons';
 
 import {
   DropdownMenu,
@@ -20,9 +20,11 @@ import {
   DropdownMenuTrigger,
   useOpenState,
 } from './dropdown-menu';
-import { ToolbarButton } from '../toolbar';
+import { ToolbarButton } from './toolbar';
 import { ELEMENT_MEDIA_EMBED, insertMedia } from '@udecode/plate-media';
 import { ELEMENT_TABLE, insertTable } from '@udecode/plate-table';
+import { KEY_LIST_STYLE_TYPE, toggleIndentList } from '@udecode/plate-indent-list';
+import { insertListItem, toggleList, indentListItems } from '@udecode/plate-list';
 
 
 const items = [
@@ -127,8 +129,18 @@ export function InsertDropdownMenu(props: DropdownMenuProps) {
                           select: true,
                           nextBlock: true,
                         });
+
+
+                        toggleIndentList(editor, {
+                          listStyleType: type === 'ul' ? 'disc' : 'decimal',
+                        });
+
+                        toggleList(editor, { type });
+
+
                         break;
                       }
+
                       case ELEMENT_TABLE: {
                         insertTable(editor);
                         break;

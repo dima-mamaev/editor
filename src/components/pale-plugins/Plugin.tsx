@@ -1,12 +1,12 @@
 import { withProps } from '@udecode/cn';
-import { createPlugins, PlateLeaf } from '@udecode/plate-common';
+import { createPlugins, PlateLeaf, PlateElement } from '@udecode/plate-common';
 import { createParagraphPlugin, ELEMENT_PARAGRAPH } from '@udecode/plate-paragraph';
-import { createHeadingPlugin, ELEMENT_H1, ELEMENT_H2, ELEMENT_H3 } from '@udecode/plate-heading';
+import { createHeadingPlugin, ELEMENT_H1, ELEMENT_H2, } from '@udecode/plate-heading';
 import { createBlockquotePlugin, ELEMENT_BLOCKQUOTE } from '@udecode/plate-block-quote';
-import { createImagePlugin, ELEMENT_IMAGE, createMediaEmbedPlugin, ELEMENT_MEDIA_EMBED } from '@udecode/plate-media';
+import { createImagePlugin, createMediaEmbedPlugin, ELEMENT_MEDIA_EMBED } from '@udecode/plate-media';
 import { createCaptionPlugin } from '@udecode/plate-caption';
 import { createTablePlugin, ELEMENT_TABLE, ELEMENT_TR, ELEMENT_TD, ELEMENT_TH } from '@udecode/plate-table';
-import { createBoldPlugin, MARK_BOLD, createItalicPlugin, MARK_ITALIC, createUnderlinePlugin, MARK_UNDERLINE, createStrikethroughPlugin, MARK_STRIKETHROUGH, createCodePlugin, createSubscriptPlugin, MARK_SUBSCRIPT, createSuperscriptPlugin, MARK_SUPERSCRIPT } from '@udecode/plate-basic-marks';
+import { createBoldPlugin, MARK_BOLD, createItalicPlugin, MARK_ITALIC, createUnderlinePlugin, MARK_UNDERLINE, createStrikethroughPlugin, MARK_STRIKETHROUGH, createCodePlugin, createSubscriptPlugin, createSuperscriptPlugin, } from '@udecode/plate-basic-marks';
 import { createFontColorPlugin, createFontBackgroundColorPlugin, createFontSizePlugin } from '@udecode/plate-font';
 import { createAlignPlugin } from '@udecode/plate-alignment';
 import { createIndentPlugin } from '@udecode/plate-indent';
@@ -23,19 +23,23 @@ import { createTrailingBlockPlugin } from '@udecode/plate-trailing-block';
 
 
 import { BlockquoteElement } from '@/components/plate-ui/Blockquote/blockquote-element';
-import { ImageElement } from '@/components/plate-ui/image-element';
-import { HeadingElement } from '@/components/plate-ui/heading-element';
-import { MediaEmbedElement } from '@/components/plate-ui/media-embed-element';
-import { ParagraphElement } from '@/components/plate-ui/paragraph-element';
-import { TableElement } from '@/components/plate-ui/table-element';
-import { TableRowElement } from '@/components/plate-ui/table-row-element';
-import { TableCellElement, TableCellHeaderElement } from '@/components/plate-ui/table-cell-element';
+import { HeadingElement } from '@/components/plate-ui/Heading/heading-element';
+import { MediaEmbedElement } from '@/components/plate-ui/Embed/media-embed-element';
+import { ParagraphElement } from '@/components/plate-ui/Paragraph/paragraph-element';
+import { TableElement } from '@/components/plate-ui/Table/table-element';
+import { TableRowElement } from '@/components/plate-ui/Table/table-row-element';
+import { TableCellElement, TableCellHeaderElement } from '@/components/plate-ui/Table/table-cell-element';
 
-import { withPlaceholders } from '@/components/plate-ui/placeholder';
+import { withPlaceholders } from '@/components/plate-ui/Utils/placeholder';
 import { withDraggables } from "../plate-ui/DnD/with-draggables";
+import { ELEMENT_LI, ELEMENT_OL, ELEMENT_UL } from '@udecode/plate-list';
+import { ListElement } from '../plate-ui/List/list-element';
+import { autoformatPlugin } from './autoformat/autoformatPlugin';
+import { createAutoformatPlugin } from '@udecode/plate-autoformat';
 
 const plugins = createPlugins(
     [
+        createAutoformatPlugin(autoformatPlugin),
         createParagraphPlugin(),
         createHeadingPlugin(),
         createBlockquotePlugin(),
@@ -64,7 +68,9 @@ const plugins = createPlugins(
                 props: {
                     validTypes: [
                         ELEMENT_PARAGRAPH,
-                        // ELEMENT_H1, ELEMENT_H2, ELEMENT_H3
+                        ELEMENT_H1,
+                        ELEMENT_H2,
+                        ELEMENT_BLOCKQUOTE,
                     ],
                 },
             },
@@ -74,7 +80,9 @@ const plugins = createPlugins(
                 props: {
                     validTypes: [
                         ELEMENT_PARAGRAPH,
-                        // ELEMENT_H1, ELEMENT_H2, ELEMENT_H3, ELEMENT_BLOCKQUOTE, ELEMENT_CODE_BLOCK
+                        ELEMENT_H1,
+                        ELEMENT_H2,
+                        ELEMENT_BLOCKQUOTE,
                     ],
                 },
             },
@@ -84,7 +92,9 @@ const plugins = createPlugins(
                 props: {
                     validTypes: [
                         ELEMENT_PARAGRAPH,
-                        // ELEMENT_H1, ELEMENT_H2, ELEMENT_H3, ELEMENT_BLOCKQUOTE, ELEMENT_CODE_BLOCK
+                        ELEMENT_H1,
+                        ELEMENT_H2,
+                        ELEMENT_BLOCKQUOTE,
                     ],
                 },
             },
@@ -155,17 +165,23 @@ const plugins = createPlugins(
     ],
     {
         components: withDraggables(withPlaceholders({
+            // Text Elements
+            [ELEMENT_PARAGRAPH]: ParagraphElement,
             [ELEMENT_BLOCKQUOTE]: BlockquoteElement,
-            [ELEMENT_IMAGE]: ImageElement,
             [ELEMENT_H1]: withProps(HeadingElement, { variant: 'h1' }),
             [ELEMENT_H2]: withProps(HeadingElement, { variant: 'h2' }),
-            [ELEMENT_H3]: withProps(HeadingElement, { variant: 'h3' }),
+            // List Elements
+            [ELEMENT_LI]: withProps(PlateElement, { as: 'li' }),
+            [ELEMENT_UL]: withProps(ListElement, { variant: 'ul' }),
+            [ELEMENT_OL]: withProps(ListElement, { variant: 'ol' }),
+            // Media Embed Elements
             [ELEMENT_MEDIA_EMBED]: MediaEmbedElement,
-            [ELEMENT_PARAGRAPH]: ParagraphElement,
+            // Table Elements
             [ELEMENT_TABLE]: TableElement,
             [ELEMENT_TR]: TableRowElement,
             [ELEMENT_TD]: TableCellElement,
             [ELEMENT_TH]: TableCellHeaderElement,
+            // Marks
             [MARK_BOLD]: withProps(PlateLeaf, { as: 'strong' }),
             [MARK_ITALIC]: withProps(PlateLeaf, { as: 'em' }),
             [MARK_STRIKETHROUGH]: withProps(PlateLeaf, { as: 's' }),

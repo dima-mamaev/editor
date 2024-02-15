@@ -4,7 +4,7 @@ import {
   useMarkToolbarButtonState,
 } from '@udecode/plate-common';
 
-import { ToolbarButton } from '../toolbar';
+import { ToolbarButton } from './toolbar';
 
 export const MarkToolbarButton = withRef<
   typeof ToolbarButton,

@@ -8,7 +8,7 @@ import {
   useTableCellElementState,
 } from '@udecode/plate-table';
 
-import { ResizeHandle } from './resizable';
+import { ResizeHandle } from '../Utils/resizable';
 
 export const TableCellElement = withRef<
   typeof PlateElement,
@@ -48,24 +48,24 @@ export const TableCellElement = withRef<
       ref={ref}
       asChild
       className={cn(
-        'relative h-full overflow-visible border-none bg-white p-0 dark:bg-slate-950',
+        'relative h-full overflow-visible border-none bg-slate-500 p-0 dark:bg-slate-950',
         hideBorder && 'before:border-none',
         element.background ? 'bg-[--cellBackground]' : 'bg-white dark:bg-slate-950',
         !hideBorder &&
+        cn(
+          isHeader && 'text-left [&_>_*]:m-0',
+          'before:h-full before:w-full',
+          selected && 'before:z-10 before:bg-slate-100 dark:before:bg-slate-800',
+          'before:absolute before:box-border before:select-none before:content-[]',
+          borders &&
           cn(
-            isHeader && 'text-left [&_>_*]:m-0',
-            'before:h-full before:w-full',
-            selected && 'before:z-10 before:bg-slate-100 dark:before:bg-slate-800',
-            'before:absolute before:box-border before:select-none before:content-[]',
-            borders &&
-              cn(
-                borders.bottom?.size &&
-                  `before:border-b before:border-b-border`,
-                borders.right?.size && `before:border-r before:border-r-border`,
-                borders.left?.size && `before:border-l before:border-l-border`,
-                borders.top?.size && `before:border-t before:border-t-border`
-              )
-          ),
+            borders.bottom?.size &&
+            `before:border-b before:border-b-border`,
+            borders.right?.size && `before:border-r before:border-r-border`,
+            borders.left?.size && `before:border-l before:border-l-border`,
+            borders.top?.size && `before:border-t before:border-t-border`
+          )
+        ),
         className
       )}
       {...cellProps}
